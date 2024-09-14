@@ -1,0 +1,10 @@
+# Configuration file with actual API key
+config.js
+
+# Misc
+.DS_Store
+*.log
+
+# IDE specific files
+.vscode/
+.idea/
