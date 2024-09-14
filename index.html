@@ -3,31 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open API Project</title>
-    <meta name="author" content="Elzara Turakulova" />
-    <meta name="description" content="Contact page" />
-    <meta
-      name="keywords"
-      content="JavaScript, HTML, CSS, Python, Java, SQL web development, full stack, software engineer"
-    />
-
-    <title>Elzara Turakulova | About me</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <!-- <link
-      rel="stylesheet"
-      type="text/css"
-      href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Montserrat:400,700"
-    /> -->
+    <meta name="description" content="Explore various cat breeds and learn about their characteristics">
+    <title>Cat Breed Explorer</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <header></header>
-    <main>
-        <section id="random-cats">
-            <h2>Cats of the day</h2>
-            <ul></ul>
-        </section>
-    </main>
+    <div class="page-content">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </header>
 
+        <div class="container">
+            <main>
+                <h1>Cat Breed Explorer</h1>
+                
+                <section id="search-section">
+                    <form id="search-form">
+                        <label for="breed-search">Search for a cat breed:</label>
+                        <input type="text" id="breed-search" name="breed-search" placeholder="Enter breed name">
+                        <button type="submit">Search</button>
+                    </form>
+                </section>
+
+                <section id="breed-info">
+                    <div id="breed-image">
+                        <!-- Cat image will be inserted here -->
+                    </div>
+                    <div id="breed-details">
+                        <h2 id="breed-name"></h2>
+                        <p id="breed-description"></p>
+                        <ul id="breed-characteristics">
+                            <!-- Other breed details will be inserted here -->
+                        </ul>
+                    </div>
+                    <div id="navigation">
+                        <button id="prev-breed">Previous</button>
+                        <button id="next-breed">Next</button>
+                    </div>
+                </section>
+            </main>
+
+            <aside id="random-cat">
+                <h2>Random Cat</h2>
+                <div id="random-cat-image">
+                    <!-- Random cat image will be inserted here -->
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Elzara Turakulova</p>
+    </footer>
+
+    <script src="js/config.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>
