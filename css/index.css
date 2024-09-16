@@ -19,7 +19,10 @@ body {
 }
 
 .page-content {
-    flex: 1 0 auto;
+    flex: 1;
+    overflow-y: auto;
+    padding-top: 60px; /* Height of the header */
+    padding-bottom: 60px; /* Height of the footer */
 }
 
 .container {
@@ -35,8 +38,17 @@ body {
 header {
     background-color: #4a4a4a;
     color: #fff;
-    padding: 1rem;
+    padding: 1rem 0; /* Changed padding to top and bottom only */
     width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px; /* Added padding to match .container */
 }
 
 nav ul {
@@ -171,12 +183,14 @@ aside {
 
 /* Footer styles */
 footer {
-    flex-shrink: 0;
     text-align: center;
     padding: 10px;
     background-color: #4a4a4a;
     color: #fff;
     width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
 }
 
 /* Responsive design */
