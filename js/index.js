@@ -33,6 +33,7 @@ async function fetchBreeds() {
 
 // Function to display a breed
 async function displayBreed(breed) {
+  const breedInfo = document.getElementById('breed-info');
   const breedImage = document.getElementById('breed-image');
   const breedName = document.getElementById('breed-name');
   const breedDescription = document.getElementById(
@@ -89,6 +90,10 @@ async function displayBreed(breed) {
       breedCharacteristics.appendChild(li);
     }
   });
+
+  // Show the breed info and hide the no-results message
+  breedInfo.style.display = 'block';
+  document.getElementById('no-results').style.display = 'none';
 }
 
 // Function to handle breed search
@@ -96,17 +101,27 @@ function handleSearch(event) {
   event.preventDefault();
   const searchTerm = document
     .getElementById('breed-search')
-    .value.toLowerCase();
+    .value.trim()
+    .toLowerCase();
+
+  if (searchTerm.length === 0) {
+    return; // Do nothing if the search term is empty
+  }
+
   const foundBreed = allBreeds.find((breed) =>
-    breed.name.toLowerCase().includes(searchTerm),
+    breed.name.toLowerCase().startsWith(searchTerm),
   );
 
   if (foundBreed) {
     currentBreedIndex = allBreeds.indexOf(foundBreed);
     displayBreed(foundBreed);
   } else {
-    document.getElementById('breed-info').innerHTML =
-      '<p>No breed found. Please try another search.</p>';
+    // Hide the breed info and show the no-results message
+    document.getElementById('breed-info').style.display = 'none';
+    const noResults = document.getElementById('no-results');
+    noResults.textContent =
+      'No breed found. Please try another search.';
+    noResults.style.display = 'block';
   }
 }
 
